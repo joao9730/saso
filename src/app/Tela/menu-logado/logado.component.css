@@ -1,0 +1,8 @@
+#botao{ text-align: center }
+      .botaoSize{
+          
+          text-align: center;
+          padding: 100px 25px;
+          border-radius: 7px;
+          font-size: 18px;
+      }

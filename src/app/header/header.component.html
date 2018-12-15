@@ -1,0 +1,31 @@
+<nav>
+  <div class="nav-wrapper a" style="background: rgba(46, 66, 179, 1);">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a id="inicio" [routerLink]="['/']">Início</a></li>
+      <li><a id="cadastro" [routerLink]="['/cadastro']">Cadastro</a></li>
+      <li><a id="menu" class="dropdown-trigger" href="#!" data-target="dropdown1">Menu Principal<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down" style="margin-right: 120px">
+    <li id="welcome" style="margin-right: 15px"></li>
+    <li class="brand-logo right" style="margin-right: 15px">SASO</li>
+      <li><button [routerLink]="['/']" class="btn btn-primary btn-small" (click)="click()" id="send" style="background: red">Encerrar
+          sessão</button></li>
+    </ul>
+  </div>
+</nav>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a [routerLink]="['/cadastroAmgSecreto']">Criar amigo secreto</a></li>
+  <li class="divider"></li>
+  <li><a [routerLink]="['/gerenciarAmg']">Gerenciar amigo secreto</a></li>
+  <li class="divider"></li>
+  <li><a [routerLink]="['/pesquisarUsuario']">Pesquisar Usuário</a></li>
+  <li class="divider"></li>
+  <li><a [routerLink]="['/pesquisarAmgSecreto']">Procurar Amigo Secreto</a></li>
+  <li class="divider"></li>
+  <li><a [routerLink]="['/gerenciarPerfil']">Gerenciar perfil</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Amigos</a></li>
+  <li class="divider"></li>
+  <li><a [routerLink]="['/relatorio']">Gerar Relatório</a></li>
+  <li class="divider"></li>
+</ul>

@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card" style="background: rgba(46, 66, 179, 1); border-radius: 10px">
+      <div class="card-content white-text">
+        <span class="card-title">
+        <h4>Perfil</h4>
+        </span>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6 login-box-body">
+              <div class="form-group">
+                  <label style= "color: white">Nome:</label>
+                  <p>
+                <input  formControlName="Nome" type="text" class="form-control obg input-field"  id="nome"
+                  maxlength="50" style="color: white" required minlength="5">
+              </div>
+
+              <div class="form-group">
+                <label style= "color: white">Email:</label>
+                <input  formControlName="Email" type="text" class="form-control obg input-field" maxlength="40" id="email"
+                 style="color: white">
+              </div>
+  
+              <div class="form-group has-feedback">
+                  <label style= "color: white">Senha:</label>
+                <input  formControlName="Senha" type="password" class="form-control obg input-field" size="20" id="senha"
+                  maxlength="16" value="" aria-autocomplete="list" style="color: white">
+                  <span class="glyphicon glyphicon-lock form-control-feedback" id="iconeSenha"></span>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Telefone:</label>
+                <div class="form-inline">
+                  <input  formControlName="Telefone" type="text" class="form-control obg input-field" id="telefone" style="color: white">
+                </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Estado:</label>
+                <div class="form-inline">
+                  <input  formControlName="Estado" type="text" class="form-control obg input-field" id="estado" style="color: white">
+                </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Cidade:</label>
+                <div class="form-inline">
+                  <input formControlName="Cidade" type="text" class="form-control obg input-field" id="cidade" style="color: white">
+                </div>
+              </div>
+            
+            <button class="btn btn" >Editar</button>
+            
+            <button type="button" class="btn btn-primary" (click)="deletarUsuario(usuario.Id_usuario)" 
+            style="background: rgba(255, 0, 0, 0.534)">Excluir Conta</button>
+          </div>
+          </form>
+
+          </div>
+        </div>
+      </div>
+    </div>

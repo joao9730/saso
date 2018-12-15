@@ -1,0 +1,120 @@
+<section class="content-header">
+</section>
+<br />
+<div class="row">
+  <div class="col s12 m9">
+    <div class="card" style="background: rgba(46, 66, 179, 1); border-radius: 10px">
+      <div class="card-content white-text"  >
+        <span class="card-title"><h5>Cadastrar</h5></span>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="col-md-12 col-lg-7">
+
+              <div class="form-group">
+                  <label style= "color: white">Nome:</label>
+                <input formControlName="Nome" type="text" class="form-control obg input-field"  id="amigo_nome"
+                [ngClass]="{ 'is-invalid': submitted && f.Nome.errors }"
+                  maxlength="50" value="" style="color: white" required minlength="5">
+                  <div *ngIf="submitted && f.Nome.errors" class="invalid-feedback">
+                    <div *ngIf="f.Nome.errors.required">Nome inválido!</div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label style= "color: white">Login:</label>
+                <input formControlName="Login" type="text" class="form-control obg input-field" maxlength="20"
+                  value="" style="color: white" [ngClass]="{ 'is-invalid': submitted && f.Login.errors }" />
+                  <div *ngIf="submitted && f.Login.errors" class="invalid-feedback">
+                      <div *ngIf="f.Login.errors.required">Login inválido!</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label style= "color: white">Email:</label>
+                <input formControlName="Email" type="text" class="form-control obg input-field" maxlength="40"
+                  value="" style="color: white" 
+                  [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                  <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                      <div *ngIf="f.Email.errors.required">Email inválido!</div>
+                  </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Senha:</label>
+                <input formControlName="Senha" type="password" class="form-control obg input-field" size="20"
+                  maxlength="16" value="" aria-autocomplete="list" style="color: white"
+                   [ngClass]="{ 'is-invalid': submitted && f.Senha.errors }" />
+                  <div *ngIf="submitted && f.Senha.errors" class="invalid-feedback">
+                      <div *ngIf="f.Senha.errors.required">Senha inválida!</div>
+                  </div>
+              </div>
+  
+  
+              <div class="form-group">
+                  <label style= "color: white">Confirmar Senha:</label>
+                <input formControlName="ConfirmarSenha" type="password" class="form-control obg input-field"
+                  size="16" maxlength="20" value="" aria-autocomplete="list" style="color: white"
+                  [ngClass]="{ 'is-invalid': submitted && f.ConfirmarSenha.errors }" />
+                  <div *ngIf="submitted && f.ConfirmarSenha.errors" class="invalid-feedback">
+                      <div *ngIf="f.ConfirmarSenha.errors.required">Senhas diferentes!</div>
+                  </div>
+              </div>
+  
+  
+              <div class="form-group">
+                  <label style= "color: white">Data de Nascimento:</label>
+                <div class="form-inline">
+                  <input formControlName="DataNascimento" type="date" class="form-control obg input-field" 
+                  name="data" style="color: white" 
+                  [ngClass]="{ 'is-invalid': submitted && f.DataNascimento.errors }" />
+                  <div *ngIf="submitted && f.DataNascimento.errors" class="invalid-feedback">
+                      <div *ngIf="f.DataNascimento.errors.required">Data inválida!</div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Telefone:</label>
+                <div class="form-inline">
+                  <input formControlName="Telefone" type="text" class="form-control obg input-field"
+                   name="telefone" style="color: white" 
+                   [ngClass]="{ 'is-invalid': submitted && f.Telefone.errors }" />
+                  <div *ngIf="submitted && f.Telefone.errors" class="invalid-feedback">
+                      <div *ngIf="f.Telefone.errors.required">Telefone inválido!</div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Estado:</label>
+                <div class="form-inline">
+                  <input formControlName="Estado" type="text" class="form-control obg input-field" name="estado" 
+                  style="color: white" 
+                  [ngClass]="{ 'is-invalid': submitted && f.Estado.errors }" />
+                  <div *ngIf="submitted && f.Estado.errors" class="invalid-feedback">
+                      <div *ngIf="f.Estado.errors.required">Campo obrigatório!</div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                  <label style= "color: white">Cidade:</label>
+                <div class="form-inline">
+                  <input formControlName="Cidade" type="text" class="form-control obg input-field" 
+                  name="cidade" style="color: white" 
+                  [ngClass]="{ 'is-invalid': submitted && f.Cidade.errors }" />
+                  <div *ngIf="submitted && f.Cidade.errors" class="invalid-feedback">
+                      <div *ngIf="f.Cidade.errors.required">Campo obrigatório!</div>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  
+              </div>
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

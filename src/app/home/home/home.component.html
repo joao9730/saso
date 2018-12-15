@@ -1,0 +1,51 @@
+<section class="content login-content" style="margin: 5% auto">
+  <div class="col s12 m6">
+    <div class="card" style="background: rgba(46, 66, 179, 1); border-radius: 10px;">
+      <div class="card-content white-text">
+        <div class="login-logo">
+          <h4 style="text-align: center">Bem Vindo ao SASO</h4>
+        </div>
+        <p style="text-align: center"><b>SASO</b> é um Sistema de Amigo Secreto Online onde você pode realizar com
+          facilidade sua confratenização do jeito
+          que quiser!
+        </p>
+        <br />
+        <h5 style="text-align: center">Já está cadastrado?</h5>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6 login-box-body">
+          <form [formGroup]="loginForm">
+            <div class="form-group has-feedback">
+              <input type="text" formControlName="Email" class="form-control white-text" placeholder="Email">
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="password" formControlName="Senha" class="form-control white-text" placeholder="Senha">
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <br />
+            <div class="row">
+
+              <!-- /.col -->
+              <div class="col-xs-4" style="text-decoration: none;">
+                <button type="submit" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary btn-block"
+                  style="margin-left: 150px">Entrar</button>
+              </div>
+              <!-- /.col -->
+            </div>
+            <h5 style="text-align: center">Ainda não póssui cadastro?</h5>
+            <br />
+
+            <div class="col-xs-4">
+              <a class="waves-effect waves-light btn-large" style="background-color: rgba(40, 218, 49, 0.877); margin-left: 135px;
+          color: #fff; text-decoration: none"
+                [routerLink]="['/cadastro']">Cadastrar</a>
+            </div>
+          </form>
+        </div>
+        <br />
+
+        <br />
+      </div>
+    </div>
+
+  </div>
+</section>
