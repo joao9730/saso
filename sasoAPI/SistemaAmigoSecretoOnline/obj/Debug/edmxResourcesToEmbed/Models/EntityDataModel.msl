@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="EntityDataModel">
+    <EntitySetMapping Name="Amigo_Oculto">
+      <EntityTypeMapping TypeName="Models.Amigo_Oculto">
+        <MappingFragment StoreEntitySet="Amigo_Oculto">
+          <ScalarProperty Name="Data_revelacao" ColumnName="Data_revelacao" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Nome_amigo_oculto" ColumnName="Nome_amigo_oculto" />
+          <ScalarProperty Name="Id_amigo_oculto" ColumnName="Id_amigo_oculto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Amigos">
+      <EntityTypeMapping TypeName="Models.Amigos">
+        <MappingFragment StoreEntitySet="Amigos">
+          <ScalarProperty Name="Fk_usuario_destino" ColumnName="Fk_usuario_destino" />
+          <ScalarProperty Name="Fk_usuario_solicitante" ColumnName="Fk_usuario_solicitante" />
+          <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+          <ScalarProperty Name="Data_confirmacao" ColumnName="Data_confirmacao" />
+          <ScalarProperty Name="Data_solicitacao" ColumnName="Data_solicitacao" />
+          <ScalarProperty Name="Id_amigo" ColumnName="Id_amigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cidade">
+      <EntityTypeMapping TypeName="Models.Cidade">
+        <MappingFragment StoreEntitySet="Cidade">
+          <ScalarProperty Name="Fk_estado" ColumnName="Fk_estado" />
+          <ScalarProperty Name="Nome_cidade" ColumnName="Nome_cidade" />
+          <ScalarProperty Name="Id_cidade" ColumnName="Id_cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="Models.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="nome_estado" ColumnName="nome_estado" />
+          <ScalarProperty Name="Id_estado" ColumnName="Id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="Models.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id_perfil" ColumnName="Id_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="Models.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="Fk_post" ColumnName="Fk_post" />
+          <ScalarProperty Name="Fk_topico" ColumnName="Fk_topico" />
+          <ScalarProperty Name="Data_post" ColumnName="Data_post" />
+          <ScalarProperty Name="Descricao_post" ColumnName="Descricao_post" />
+          <ScalarProperty Name="Id_post" ColumnName="Id_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sorteio">
+      <EntityTypeMapping TypeName="Models.Sorteio">
+        <MappingFragment StoreEntitySet="Sorteio">
+          <ScalarProperty Name="Fk_usuario_fim" ColumnName="Fk_usuario_fim" />
+          <ScalarProperty Name="Fk_amigo_oculto" ColumnName="Fk_amigo_oculto" />
+          <ScalarProperty Name="Fk_usuario_inicio" ColumnName="Fk_usuario_inicio" />
+          <ScalarProperty Name="Id_sorteio" ColumnName="Id_sorteio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topico">
+      <EntityTypeMapping TypeName="Models.Topico">
+        <MappingFragment StoreEntitySet="Topico">
+          <ScalarProperty Name="Fk_amigo_oculto" ColumnName="Fk_amigo_oculto" />
+          <ScalarProperty Name="Data_inicio" ColumnName="Data_inicio" />
+          <ScalarProperty Name="Discursao" ColumnName="Discursao" />
+          <ScalarProperty Name="Id_Topico" ColumnName="Id_Topico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="Models.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Fk_cidade" ColumnName="Fk_cidade" />
+          <ScalarProperty Name="Fk_perfil" ColumnName="Fk_perfil" />
+          <ScalarProperty Name="Data_nascimento" ColumnName="Data_nascimento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario_Amigo_Oculto">
+      <EntityTypeMapping TypeName="Models.Usuario_Amigo_Oculto">
+        <MappingFragment StoreEntitySet="Usuario_Amigo_Oculto">
+          <ScalarProperty Name="Fk_amigo_oculto" ColumnName="Fk_amigo_oculto" />
+          <ScalarProperty Name="Fk_usuario" ColumnName="Fk_usuario" />
+          <ScalarProperty Name="Id_usuario_amigo_oculto" ColumnName="Id_usuario_amigo_oculto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

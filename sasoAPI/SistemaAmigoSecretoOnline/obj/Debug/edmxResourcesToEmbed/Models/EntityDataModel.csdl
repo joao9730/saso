@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EntityDataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Amigo_Oculto" EntityType="Models.Amigo_Oculto" />
+    <EntitySet Name="Amigos" EntityType="Models.Amigos" />
+    <EntitySet Name="Cidade" EntityType="Models.Cidade" />
+    <EntitySet Name="Estado" EntityType="Models.Estado" />
+    <EntitySet Name="Perfil" EntityType="Models.Perfil" />
+    <EntitySet Name="Post" EntityType="Models.Post" />
+    <EntitySet Name="Sorteio" EntityType="Models.Sorteio" />
+    <EntitySet Name="Topico" EntityType="Models.Topico" />
+    <EntitySet Name="Usuario" EntityType="Models.Usuario" />
+    <EntitySet Name="Usuario_Amigo_Oculto" EntityType="Models.Usuario_Amigo_Oculto" />
+    <AssociationSet Name="FK_Sorteio_ToAmigo_Oculto" Association="Models.FK_Sorteio_ToAmigo_Oculto">
+      <End Role="Amigo_Oculto" EntitySet="Amigo_Oculto" />
+      <End Role="Sorteio" EntitySet="Sorteio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topico_ToAmigo_Oculto" Association="Models.FK_Topico_ToAmigo_Oculto">
+      <End Role="Amigo_Oculto" EntitySet="Amigo_Oculto" />
+      <End Role="Topico" EntitySet="Topico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Amigo_Oculto_ToAmigo_Oculto" Association="Models.FK_Usuario_Amigo_Oculto_ToAmigo_Oculto">
+      <End Role="Amigo_Oculto" EntitySet="Amigo_Oculto" />
+      <End Role="Usuario_Amigo_Oculto" EntitySet="Usuario_Amigo_Oculto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Amigos_ToUsuario" Association="Models.FK_Amigos_ToUsuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Amigos" EntitySet="Amigos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cidade_ToEstado" Association="Models.FK_Cidade_ToEstado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Cidade" EntitySet="Cidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_ToCidade" Association="Models.FK_Usuario_ToCidade">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_ToPerfil" Association="Models.FK_Usuario_ToPerfil">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_ToPost" Association="Models.FK_Post_ToPost">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Post1" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_ToTopico" Association="Models.FK_Post_ToTopico">
+      <End Role="Topico" EntitySet="Topico" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sorteio_ToUsuario" Association="Models.FK_Sorteio_ToUsuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Sorteio" EntitySet="Sorteio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Amigo_Oculto_ToUsuario" Association="Models.FK_Usuario_Amigo_Oculto_ToUsuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_Amigo_Oculto" EntitySet="Usuario_Amigo_Oculto" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Amigo_Oculto">
+    <Key>
+      <PropertyRef Name="Id_amigo_oculto" />
+    </Key>
+    <Property Name="Id_amigo_oculto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome_amigo_oculto" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Data_revelacao" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Sorteio" Relationship="Models.FK_Sorteio_ToAmigo_Oculto" FromRole="Amigo_Oculto" ToRole="Sorteio" />
+    <NavigationProperty Name="Topico" Relationship="Models.FK_Topico_ToAmigo_Oculto" FromRole="Amigo_Oculto" ToRole="Topico" />
+    <NavigationProperty Name="Usuario_Amigo_Oculto" Relationship="Models.FK_Usuario_Amigo_Oculto_ToAmigo_Oculto" FromRole="Amigo_Oculto" ToRole="Usuario_Amigo_Oculto" />
+  </EntityType>
+  <EntityType Name="Amigos">
+    <Key>
+      <PropertyRef Name="Id_amigo" />
+    </Key>
+    <Property Name="Id_amigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Data_solicitacao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_confirmacao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Situacao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fk_usuario_solicitante" Type="Int32" Nullable="false" />
+    <Property Name="Fk_usuario_destino" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Models.FK_Amigos_ToUsuario" FromRole="Amigos" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="Id_cidade" />
+    </Key>
+    <Property Name="Id_cidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome_cidade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fk_estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estado" Relationship="Models.FK_Cidade_ToEstado" FromRole="Cidade" ToRole="Estado" />
+    <NavigationProperty Name="Usuario" Relationship="Models.FK_Usuario_ToCidade" FromRole="Cidade" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="Id_estado" />
+    </Key>
+    <Property Name="Id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cidade" Relationship="Models.FK_Cidade_ToEstado" FromRole="Estado" ToRole="Cidade" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="Id_perfil" />
+    </Key>
+    <Property Name="Id_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Models.FK_Usuario_ToPerfil" FromRole="Perfil" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id_post" />
+    </Key>
+    <Property Name="Id_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao_post" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Data_post" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Fk_topico" Type="Int32" Nullable="false" />
+    <Property Name="Fk_post" Type="Int32" />
+    <NavigationProperty Name="Post1" Relationship="Models.FK_Post_ToPost" FromRole="Post" ToRole="Post1" />
+    <NavigationProperty Name="Post2" Relationship="Models.FK_Post_ToPost" FromRole="Post1" ToRole="Post" />
+    <NavigationProperty Name="Topico" Relationship="Models.FK_Post_ToTopico" FromRole="Post" ToRole="Topico" />
+  </EntityType>
+  <EntityType Name="Sorteio">
+    <Key>
+      <PropertyRef Name="Id_sorteio" />
+    </Key>
+    <Property Name="Id_sorteio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fk_usuario_inicio" Type="Int32" Nullable="false" />
+    <Property Name="Fk_amigo_oculto" Type="Int32" Nullable="false" />
+    <Property Name="Fk_usuario_fim" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Amigo_Oculto" Relationship="Models.FK_Sorteio_ToAmigo_Oculto" FromRole="Sorteio" ToRole="Amigo_Oculto" />
+    <NavigationProperty Name="Usuario" Relationship="Models.FK_Sorteio_ToUsuario" FromRole="Sorteio" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Topico">
+    <Key>
+      <PropertyRef Name="Id_Topico" />
+    </Key>
+    <Property Name="Id_Topico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Discursao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Data_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Fk_amigo_oculto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Amigo_Oculto" Relationship="Models.FK_Topico_ToAmigo_Oculto" FromRole="Topico" ToRole="Amigo_Oculto" />
+    <NavigationProperty Name="Post" Relationship="Models.FK_Post_ToTopico" FromRole="Topico" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Data_nascimento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Fk_perfil" Type="Int32" Nullable="false" />
+    <Property Name="Fk_cidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Amigos" Relationship="Models.FK_Amigos_ToUsuario" FromRole="Usuario" ToRole="Amigos" />
+    <NavigationProperty Name="Cidade" Relationship="Models.FK_Usuario_ToCidade" FromRole="Usuario" ToRole="Cidade" />
+    <NavigationProperty Name="Perfil" Relationship="Models.FK_Usuario_ToPerfil" FromRole="Usuario" ToRole="Perfil" />
+    <NavigationProperty Name="Sorteio" Relationship="Models.FK_Sorteio_ToUsuario" FromRole="Usuario" ToRole="Sorteio" />
+    <NavigationProperty Name="Usuario_Amigo_Oculto" Relationship="Models.FK_Usuario_Amigo_Oculto_ToUsuario" FromRole="Usuario" ToRole="Usuario_Amigo_Oculto" />
+  </EntityType>
+  <EntityType Name="Usuario_Amigo_Oculto">
+    <Key>
+      <PropertyRef Name="Id_usuario_amigo_oculto" />
+    </Key>
+    <Property Name="Id_usuario_amigo_oculto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fk_usuario" Type="Int32" Nullable="false" />
+    <Property Name="Fk_amigo_oculto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Amigo_Oculto" Relationship="Models.FK_Usuario_Amigo_Oculto_ToAmigo_Oculto" FromRole="Usuario_Amigo_Oculto" ToRole="Amigo_Oculto" />
+    <NavigationProperty Name="Usuario" Relationship="Models.FK_Usuario_Amigo_Oculto_ToUsuario" FromRole="Usuario_Amigo_Oculto" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Sorteio_ToAmigo_Oculto">
+    <End Type="Models.Amigo_Oculto" Role="Amigo_Oculto" Multiplicity="1" />
+    <End Type="Models.Sorteio" Role="Sorteio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Amigo_Oculto">
+        <PropertyRef Name="Id_amigo_oculto" />
+      </Principal>
+      <Dependent Role="Sorteio">
+        <PropertyRef Name="Fk_amigo_oculto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topico_ToAmigo_Oculto">
+    <End Type="Models.Amigo_Oculto" Role="Amigo_Oculto" Multiplicity="1" />
+    <End Type="Models.Topico" Role="Topico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Amigo_Oculto">
+        <PropertyRef Name="Id_amigo_oculto" />
+      </Principal>
+      <Dependent Role="Topico">
+        <PropertyRef Name="Fk_amigo_oculto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Amigo_Oculto_ToAmigo_Oculto">
+    <End Type="Models.Amigo_Oculto" Role="Amigo_Oculto" Multiplicity="1" />
+    <End Type="Models.Usuario_Amigo_Oculto" Role="Usuario_Amigo_Oculto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Amigo_Oculto">
+        <PropertyRef Name="Id_amigo_oculto" />
+      </Principal>
+      <Dependent Role="Usuario_Amigo_Oculto">
+        <PropertyRef Name="Fk_amigo_oculto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Amigos_ToUsuario">
+    <End Type="Models.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="Models.Amigos" Role="Amigos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Amigos">
+        <PropertyRef Name="Fk_usuario_solicitante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cidade_ToEstado">
+    <End Type="Models.Estado" Role="Estado" Multiplicity="1" />
+    <End Type="Models.Cidade" Role="Cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="Cidade">
+        <PropertyRef Name="Fk_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_ToCidade">
+    <End Type="Models.Cidade" Role="Cidade" Multiplicity="1" />
+    <End Type="Models.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="Id_cidade" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Fk_cidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_ToPerfil">
+    <End Type="Models.Perfil" Role="Perfil" Multiplicity="1" />
+    <End Type="Models.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id_perfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Fk_perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_ToPost">
+    <End Type="Models.Post" Role="Post" Multiplicity="0..1" />
+    <End Type="Models.Post" Role="Post1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Id_post" />
+      </Principal>
+      <Dependent Role="Post1">
+        <PropertyRef Name="Fk_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_ToTopico">
+    <End Type="Models.Topico" Role="Topico" Multiplicity="1" />
+    <End Type="Models.Post" Role="Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topico">
+        <PropertyRef Name="Id_Topico" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="Fk_topico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sorteio_ToUsuario">
+    <End Type="Models.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="Models.Sorteio" Role="Sorteio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Sorteio">
+        <PropertyRef Name="Fk_usuario_inicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Amigo_Oculto_ToUsuario">
+    <End Type="Models.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="Models.Usuario_Amigo_Oculto" Role="Usuario_Amigo_Oculto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Usuario_Amigo_Oculto">
+        <PropertyRef Name="Fk_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

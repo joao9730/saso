@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0918681baf7c41d5abcae375b94844f4" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="Models.Amigo_Oculto" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Amigos" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="Models.Perfil" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="Models.Post" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="Models.Sorteio" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="Models.Topico" Width="1.5" PointX="5.25" PointY="14" />
+        <EntityTypeShape EntityType="Models.Usuario" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Models.Usuario_Amigo_Oculto" Width="1.5" PointX="5.25" PointY="2" />
+        <AssociationConnector Association="Models.FK_Sorteio_ToAmigo_Oculto" />
+        <AssociationConnector Association="Models.FK_Topico_ToAmigo_Oculto" />
+        <AssociationConnector Association="Models.FK_Usuario_Amigo_Oculto_ToAmigo_Oculto" />
+        <AssociationConnector Association="Models.FK_Amigos_ToUsuario" />
+        <AssociationConnector Association="Models.FK_Usuario_ToPerfil" />
+        <AssociationConnector Association="Models.FK_Post_ToPost" />
+        <AssociationConnector Association="Models.FK_Post_ToTopico" />
+        <AssociationConnector Association="Models.FK_Sorteio_ToUsuario" />
+        <AssociationConnector Association="Models.FK_Usuario_Amigo_Oculto_ToUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
